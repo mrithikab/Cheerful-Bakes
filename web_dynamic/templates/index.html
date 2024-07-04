@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/header.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/common.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/footer.css') }}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="{{ url_for('static', filename='scripts/footer.js') }}"></script>
+	<script src="{{ url_for('static', filename='scripts/header.js') }}"></script>
+	<script src="{{ url_for('static', filename='scripts/imageSlider.js') }}"></script>
+	<title>Cheerful Bakes</title>
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="logo">
+				<a href="#"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"></a>
+			</div>
+			<nav class="show-menu">
+				<ul>
+					<li><a href="{{ url_for('home') }}">Home</a></li>
+					<li><a href="{{ url_for('products') }}">Shop</a></li>
+					<li>
+						<form action="/search" method="GET">
+							<input type="search" name="query" placeholder="Search the bakery">
+							<button type="submit"><i class="material-icons">search</i></button>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<div class="user">
+				<div class="profile">
+					<a href="{{ url_for('profile') }}"><i class="material-icons icon-large">account_circle</i>Account</a>
+				</div>
+				<div class="cart">
+					<a href="{{ url_for('cart') }}">
+						<i class="material-icons">shopping_cart</i>
+						<!--{% if cart_count > 0 %}-->
+						<span id="cart-count">{{ cart_count }}</span>
+						<!--{% endif %}-->
+					</a>
+					<div id="cart-preview" class="cart-preview"></div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="slideshow-container">
+			<img class="slides" src="{{ url_for('static', filename='images/banner1.jpg') }}">
+			<img class="slides" src="{{ url_for('static', filename='images/banner2.jpg') }}">
+			<img class="slides" src="{{ url_for('static', filename='images/banner3.jpg') }}">
+			<img class="slides" src="{{ url_for('static', filename='images/banner4.jpg') }}">
+			<img class="slides" src="{{ url_for('static', filename='images/banner5.jpg') }}">
+			<img class="slides" src="{{ url_for('static', filename='images/banner6.jpg') }}">
+		</div>
+	</section>
+	<section class="features">
+		<div class="features-containers">
+			<img src="{{ url_for('static', filename='images/features1.jpg') }}">
+			<p>Fresh baked goods deliverd right to your doorstep.</p>
+		</div>
+		<div class="features-containers" >
+			<img src="{{ url_for('static', filename='images/features2.jpg') }}">
+			<p>Craving something sweet? Shop now.</p>
+		</div>
+		<div class="features-containers">
+			<img src="{{ url_for('static', filename='images/features3.jpg') }}">
+			<p>Shop online and pay when your goodies arrive. Convenient and secure payment option.</p>
+		</div>
+	</section>
+	<div class="divider">Cheerful Bakes: Your Online Bakery</div>
+	<footer>
+		<div class="container">
+			<div class="footer-logo">
+				<img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+			</div>
+			
+		</div>
+	</footer>
+</body>
+</html>
